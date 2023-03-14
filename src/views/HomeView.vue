@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h2>{{ appTitle }}</h2>
+    <h2 ref="appTitleRef">{{ appTitle }}</h2>
 
     <h3>{{ counterData.title }}:</h3>
 
@@ -27,7 +27,7 @@
 */
 
 import { vAutofocus } from '@/directives/vAutofocus';
-import { computed, onMounted, reactive, watch } from 'vue';
+import { computed, onMounted, reactive, ref, watch } from 'vue';
 
 /*
   app title
@@ -35,8 +35,10 @@ import { computed, onMounted, reactive, watch } from 'vue';
 
 const appTitle = 'My Ok Counter App';
 
+const appTitleRef = ref(null);
+
 onMounted(() => {
-  console.log('Do stuff related to App Title');
+  console.log(`The app title is ${appTitleRef.value.offsetWidth} px wide!`);
 });
 
 /*
