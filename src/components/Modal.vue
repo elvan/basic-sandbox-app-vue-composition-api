@@ -3,7 +3,7 @@
     <div class="modal">
       <h1>{{ title }}</h1>
       <slot />
-      <button>Hide modal</button>
+      <button @click="handleButtonClick">Hide modal</button>
     </div>
   </teleport>
 </template>
@@ -19,6 +19,20 @@ const props = defineProps({
     default: 'No title specified',
   },
 });
+
+/*
+  emits
+*/
+
+const emit = defineEmits(['hideModal']);
+
+/*
+  handle button click
+*/
+
+const handleButtonClick = () => {
+  emit('hideModal');
+};
 </script>
 
 <style>
