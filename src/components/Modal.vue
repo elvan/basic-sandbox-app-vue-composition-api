@@ -3,7 +3,7 @@
     <div v-if="modelValue" class="modal">
       <h1>{{ title }}</h1>
       <slot />
-      <button @click="handleButtonClick">Hide modal</button>
+      <button @click="$emit('update:modelValue', false)">Hide modal</button>
     </div>
   </teleport>
 </template>
@@ -28,15 +28,7 @@ const props = defineProps({
   emits
 */
 
-const emit = defineEmits(['hideModal']);
-
-/*
-  handle button click
-*/
-
-const handleButtonClick = () => {
-  emit('hideModal');
-};
+const emit = defineEmits(['update:modelValue']);
 </script>
 
 <style>
