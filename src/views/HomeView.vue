@@ -27,7 +27,7 @@
 */
 
 import { vAutofocus } from '@/directives/vAutofocus';
-import { computed, onMounted, reactive, ref, watch } from 'vue';
+import { computed, nextTick, onMounted, reactive, ref, watch } from 'vue';
 
 /*
   app title
@@ -64,8 +64,10 @@ const oddOrEven = computed(() => {
   return 'odd';
 });
 
-const increaseCounter = (amount, e) => {
+const increaseCounter = async (amount, e) => {
   counterData.count += amount;
+  await nextTick();
+  console.log('do something when counter has updated in the dom');
 };
 
 const decreaseCounter = (amount) => {
