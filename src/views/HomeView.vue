@@ -26,6 +26,7 @@
   imports
 */
 
+import { vAutofocus } from '@/directives/vAutofocus';
 import { computed, onMounted, reactive, watch } from 'vue';
 
 /*
@@ -72,16 +73,6 @@ const decreaseCounter = (amount) => {
 onMounted(() => {
   console.log('Do stuff related to Counter');
 });
-
-/*
-  directives
-*/
-
-const vAutofocus = {
-  mounted: (el) => {
-    el.focus();
-  },
-};
 </script>
 
 <style>
