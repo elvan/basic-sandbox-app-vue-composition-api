@@ -22,7 +22,15 @@
 </template>
 
 <script setup>
-import { computed, reactive, watch } from 'vue';
+import {
+  computed,
+  onBeforeMount,
+  onBeforeUnmount,
+  onMounted,
+  onUnmounted,
+  reactive,
+  watch,
+} from 'vue';
 
 const appTitle = 'My Ok Counter App';
 
@@ -52,6 +60,19 @@ const increaseCounter = (amount, e) => {
 const decreaseCounter = (amount) => {
   counterData.count -= amount;
 };
+
+onBeforeMount(() => {
+  console.log('onBeforeMount');
+});
+onMounted(() => {
+  console.log('onMounted');
+});
+onBeforeUnmount(() => {
+  console.log('onBeforeUnmount');
+});
+onUnmounted(() => {
+  console.log('onUnmounted');
+});
 </script>
 
 <style>
