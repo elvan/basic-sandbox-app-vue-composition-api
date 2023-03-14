@@ -24,8 +24,10 @@
 <script setup>
 import {
   computed,
+  onActivated,
   onBeforeMount,
   onBeforeUnmount,
+  onDeactivated,
   onMounted,
   onUnmounted,
   reactive,
@@ -72,6 +74,12 @@ onBeforeUnmount(() => {
 });
 onUnmounted(() => {
   console.log('onUnmounted');
+});
+onActivated(() => {
+  console.log('onActivated');
+});
+onDeactivated(() => {
+  console.log('onDeactivated');
 });
 </script>
 
