@@ -1,14 +1,24 @@
 <template>
   <div class="modals">
     <h1>Modals</h1>
+    <div>
+      <label>
+        Show dark modals?
+        <input v-model="showDarkModals" type="checkbox" />
+      </label>
+    </div>
     <button @click="showModal = true">Show modal</button>
-    <Modal v-model="showModal" title="My modal title (via prop)">
+    <component
+      v-model="showModal"
+      :is="showDarkModals ? ModalDark : Modal"
+      title="My modal title (via prop)"
+    >
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ipsa
         laboriosam vero natus ut rerum quaerat, saepe praesentium tempore et hic
         velit odio nemo minus labore quam ullam quod architecto?
       </p>
-    </Modal>
+    </component>
   </div>
 </template>
 
@@ -18,11 +28,13 @@
 */
 
 import Modal from '@/components/Modal.vue';
+import ModalDark from '@/components/ModalDark.vue';
 import { ref } from 'vue';
 
 /*
   modals
 */
 
+const showDarkModals = ref(false);
 const showModal = ref(false);
 </script>
